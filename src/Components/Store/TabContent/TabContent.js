@@ -9,10 +9,17 @@ class TabContent extends Component {
       buttonArr: ButtonArr
     };
   }
-
+  getSelectedItemTabContent(selectedItem) {
+    this.props.getSelectedItemStore(selectedItem);
+  }
   render() {
     const templateListTabPane = this.state.buttonArr.map((item, index) => (
-      <TabPane key={index} tabPane={item} index={index} />
+      <TabPane
+        key={index}
+        tabPane={item}
+        index={index}
+        getSelectedItemTabContent={this.getSelectedItemTabContent.bind(this)}
+      />
     ));
     return <div className="tab-content">{templateListTabPane}</div>;
   }

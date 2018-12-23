@@ -6,7 +6,19 @@ import BtnGroup from "./Components/Store/BtnGroup";
 import Store from "./Components/Store/Store";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedItem: null
+    };
+  }
+  getSelectedItemApp(selectedItem) {
+    this.setState({
+      selectedItem
+    });
+  }
   render() {
+    console.log(this.state.selectedItem);
     return (
       <div className="App">
         <div className="container-fluid">
@@ -16,7 +28,7 @@ class App extends Component {
           <div className="row">
             <div className="col-lg-8 col-sm-8">
               <BtnGroup />
-              <Store />
+              <Store getSelectedItemApp={this.getSelectedItemApp.bind(this)} />
             </div>
             <div className="col-lg-4 col-sm-4">
               <Contain />

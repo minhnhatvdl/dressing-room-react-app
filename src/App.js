@@ -14,11 +14,11 @@ class App extends Component {
             <Header />
           </div>
           <div className="row">
-            <div className="col-lg-6 col-sm-6">
+            <div className="col-lg-8 col-sm-8">
               <BtnGroup />
               <Store />
             </div>
-            <div className="col-lg-6 col-sm-6">
+            <div className="col-lg-4 col-sm-4">
               <Contain />
             </div>
           </div>

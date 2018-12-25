@@ -18,7 +18,6 @@ class App extends Component {
     });
   }
   render() {
-    console.log(this.state.selectedItem);
     return (
       <div className="App">
         <div className="container-fluid">
@@ -31,7 +30,7 @@ class App extends Component {
               <Store getSelectedItemApp={this.getSelectedItemApp.bind(this)} />
             </div>
             <div className="col-lg-4 col-sm-4">
-              <Contain />
+              <Contain selectedItem={this.state.selectedItem} />
             </div>
           </div>
         </div>

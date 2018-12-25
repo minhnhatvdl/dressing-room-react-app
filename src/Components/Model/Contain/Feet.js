@@ -24,6 +24,28 @@ class Feet extends Component {
         zIndex: "1"
       }
     };
+    if(this.props.selectedItem) {
+        styles.feetLeftClass = {
+            width: "500px",
+            height: "1000px",
+            background: `url(${this.props.selectedItem.imgSrc_png})`,
+            position: "absolute",
+            top: "-30%",
+            left: "-5%",
+            zIndex: "3",
+            transform: "scale(0.5)"
+        }
+        styles.feetRightClass = {
+            width: "500px",
+            height: "1000px",
+            background: `url(${this.props.selectedItem.imgSrc_png})`,
+            position: "absolute",
+            top: "-30%",
+            left: "-5%",
+            zIndex: "3",
+            transform: "scale(0.5)"
+        }
+    }
     const styleFeet =
       this.props.type === "left" ? styles.feetLeftClass : styles.feetRightClass;
     return <div style={styleFeet} />;

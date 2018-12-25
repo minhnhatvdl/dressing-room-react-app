@@ -23,6 +23,31 @@ class Bikini extends Component {
         zIndex: "1"
       }
     };
+    if(this.props.selectedItem) {
+        if(this.props.selectedItem.type === 'topclothes') {
+            styles.bikiniTopClass = {
+                width: "500px",
+                height: "1000px",
+                background: `url(${this.props.selectedItem.imgSrc_png})`,
+                position: "absolute",
+                top: "-30%",
+                left: "-5%",
+                zIndex: "3",
+                transform: "scale(0.5)"
+            }
+        } else if(this.props.selectedItem.type === 'botclothes') {
+            styles.bikiniBottomClass = {
+                width: "500px",
+                height: "1000px",
+                background: `url(${this.props.selectedItem.imgSrc_png})`,
+                position: "absolute",
+                top: "-30%",
+                left: "-5%",
+                zIndex: "5",
+                transform: "scale(0.5)"
+            }
+        }
+    }
     const styleBikini =
       this.props.type === "top"
         ? styles.bikiniTopClass

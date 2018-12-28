@@ -19,10 +19,15 @@ class TabPane extends Component {
   }
   getTemplateTabPane() {
     const templateTabPane = this.getListItem().map((item, index) => {
+      let selectedItem = false;
+      if(this.props.selectedItem) {
+        if(item.id === this.props.selectedItem.id) selectedItem = true;
+      }
       return (
         <Item
           key={index}
           item={item}
+          selectedItem={selectedItem}
           getSelectedItemTabPane={this.getSelectedItemTabPane.bind(this)}
         />
       );

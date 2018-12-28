@@ -7,15 +7,16 @@ import Handbag from "./Contain/Handbag";
 import Necklace from "./Contain/Necklace";
 import Hairstyle from "./Contain/Hairstyle";
 
+const containClass = {
+  width: "460px",
+  height: "590px",
+  margin: "0 auto",
+  background: 'url("./images/background/background_998.jpg")',
+  position: "relative"
+}
 const styles = {
   // .contain
-  containClass: {
-    width: "460px",
-    height: "590px",
-    margin: "0 auto",
-    background: 'url("./images/background/background_998.jpg")',
-    position: "relative"
-  }
+  containClass
 };
 
 export default class Contain extends Component {
@@ -38,10 +39,15 @@ export default class Contain extends Component {
   }
   render() {
     if (this.state.background) {
-      styles.containClass = {
-        ...styles.containClass,
-        background: `url(${this.state.background.imgSrc_png})`
-      };
+      if (this.state.background.default === true) {
+        styles.containClass = containClass;
+      } else {
+        styles.containClass = {
+          ...styles.containClass,
+          background: `url(${this.state.background.imgSrc_png})`,
+          default: false
+        };
+      }
     }
     return (
       <div style={styles.containClass}>

@@ -6,10 +6,20 @@ class TabContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonArr: ButtonArr
+      buttonArr: ButtonArr,
+      topclothes: null,
+      botclothes: null,
+      shoes: null,
+      handbags: null,
+      necklaces: null,
+      hairstyle: null,
+      background: null
     };
   }
   getSelectedItemTabContent(selectedItem) {
+    this.setState({
+      [selectedItem.type]: selectedItem
+    })
     this.props.getSelectedItemStore(selectedItem);
   }
   render() {
@@ -18,6 +28,7 @@ class TabContent extends Component {
         key={index}
         tabPane={item}
         index={index}
+        selectedItem={this.state[item.type]}
         getSelectedItemTabContent={this.getSelectedItemTabContent.bind(this)}
       />
     ));
